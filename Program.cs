@@ -5,24 +5,34 @@ namespace CatWorx.BadgeMaker
 {
   class Program
   {
-    static void Main(string[] args)
+    static List<string> GetEmployees()
     {
       List<string> employees = new List<string>();
-      //Get a name from the console and assign it to a variable
-      while (true)
+      while(true)
       {
-        Console.WriteLine("Please enter a name: ");
+        Console.WriteLine("Please enter a name: (leave empty to exit): ");
         string input = Console.ReadLine() ?? "";
         if (input == "")
         {
           break;
         }
-        employees.Add(input);        
+        employees.Add(input);
       }
+      return employees;
+    }
+
+    static void PrintEmployees(List<string> employees)
+    {
       for (int i = 0; i < employees.Count; i++)
       {
         Console.WriteLine(employees[i]);
       }
+    }
+    static void Main(string[] args)
+    {
+      //This is our employee-getting code
+      List<string> employees = GetEmployees();
+      PrintEmployees(employees);
     }
   }
 }
