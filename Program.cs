@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 
 namespace CatWorx.BadgeMaker
@@ -31,13 +32,13 @@ namespace CatWorx.BadgeMaker
       return employees;
     }
 
-    static void Main(string[] args)
+    async static Task Main(string[] args)
     {
       //This is our employee-getting code
       List<Employee> employees = GetEmployees();
       Util.PrintEmployees(employees);
       Util.MakeCSV(employees);
-      Util.MakeBadges(employees);
+      await Util.MakeBadges(employees);
     }
   }
 }
